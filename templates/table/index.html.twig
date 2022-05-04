@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{asset('node_modules/bootstrap/dist/css/bootstrap.css')}}">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        margin: 50px;
+
+    }
+</style>
+<body>
+{{include('fragments/date.html.twig')}}
+
+<div class="alert alert-dark">
+    <a href="{{path('app_tab', {nb : 7})}}">statistically speaking</a>
+</div>
+<table class="table">
+    <tr class="table-active">
+        <th>Name</th>
+        <th>First Name</th>
+        <th>Age</th>
+        <th>Message</th>
+    </tr>
+
+    {%for user in users %}
+        <tr class="table-{% if loop.index is odd %}danger{% else %}warning{% endif %}">
+            <td>{{user.fn}}</td>
+            <td>{{user.n}}</td>
+            <td>{{user.age}}</td>
+            <td>{{render( controller('App\\Controller\\FirstController::saySalem', {name : user.n, fn : user.fn }) )}}</td>
+         </tr>
+
+    {%endfor%}
+</table>
+</body>
+</html>

@@ -1,0 +1,53 @@
+{%extends 'template.html.twig'%}
+{%block pagetitle%}
+    ToDoList
+{%endblock%}
+
+{%block style%}
+    body{
+    background-color: #1b1e21;
+    color: white;
+    font-family: "Source Code Pro", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospaces;
+    }
+    .card-body{
+    background-color: #1b1e21;
+    }
+    .card{
+    background-color: #1b1e21;
+    }
+    .myli{
+    background-color: #1b1e21;
+    color: white;
+    }
+    .myimg{
+    width: 100px;
+    height: 200px;
+    }
+    .myrow{
+    background-color: #1b1e21;
+    }
+{%endblock%}
+
+{%block body%}
+
+
+<div class="row myrow">
+    <h1>list</h1>
+    <div class="col-9">
+        <ol class="list-group myol">
+
+            {% for name, content in app.session.get('todos') %}
+                <li class="list-group-item myli">
+                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                    {{ name }} : {{ content }}
+                </li>
+            {%endfor%}
+
+        </ol> </div>
+    <div class="col-3">
+        <img class="img myimg" src={{asset('assets/nar.png')}} alt="naruto">
+    </div>
+
+</div>
+
+{%endblock%}

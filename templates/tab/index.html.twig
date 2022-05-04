@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{asset('node_modules/bootstrap/dist/css/bootstrap.css')}}">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: #1b1e21;
+        margin: 100px;
+    }
+</style>
+<body>
+<table class="table table-dark">
+    {% for note in notes%}
+    <tr>
+        <td>{{note}}</td>
+    </tr>
+    {%endfor%}
+</table>
+<div class="alert alert-dark">
+    <p>nombre de notes : {{notes | length}}</p>
+    <p>max: {{max(notes)}}</p>
+    <p>max: {{min(notes)}}</p>
+</div>
+
+</body>
+</html>
